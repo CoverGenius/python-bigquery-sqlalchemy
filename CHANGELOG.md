@@ -14,6 +14,14 @@ Older versions of this project were distributed as [pybigquery][0].
 [2]: https://pypi.org/project/pybigquery/#history
 
 
+## [1.8.1](https://github.com/googleapis/python-bigquery-sqlalchemy/compare/v1.8.0...v1.8.1) (2023-08-31)
+
+
+### Bug Fixes
+
+* Remove Python 3.7 support due to EOL ([#900](https://github.com/googleapis/python-bigquery-sqlalchemy/issues/900)) ([45fcad4](https://github.com/googleapis/python-bigquery-sqlalchemy/commit/45fcad4111b9143fb1b9c309ed2a7578ae05d7a4))
+* Removing Python 3.7 from sync-repo-settings.yaml file ([#902](https://github.com/googleapis/python-bigquery-sqlalchemy/issues/902)) ([afd895e](https://github.com/googleapis/python-bigquery-sqlalchemy/commit/afd895e6b63e9a21610101f4d5e080a13066f102))
+
 ## [1.8.0](https://github.com/googleapis/python-bigquery-sqlalchemy/compare/v1.7.0...v1.8.0) (2023-08-11)
 
 
