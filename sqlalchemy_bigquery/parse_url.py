@@ -64,6 +64,7 @@ def parse_url(url):  # noqa: C901
         raise ValueError("maximum_billing_tier is a deprecated argument")
 
     project_id = url.host
+    quota_project_id = None
     location = None
     dataset_id = url.database or None
     arraysize = None
@@ -111,6 +112,9 @@ def parse_url(url):  # noqa: C901
     if "with_subject" in query:
         with_subject = query.pop('with_subject')
 
+    if "quota_project_id" in query:
+        quota_project_id = query.pop('quota_project_id')
+
     # if only these "non-config" values were present, the dict will now be empty
     if not query:
         # if a dataset_id exists, we need to return a job_config that isn't None
@@ -118,6 +122,7 @@ def parse_url(url):  # noqa: C901
         if dataset_id:
             return (
                 project_id,
+                quota_project_id,
                 location,
                 dataset_id,
                 arraysize,
@@ -131,6 +136,7 @@ def parse_url(url):  # noqa: C901
         else:
             return (
                 project_id,
+                quota_project_id,
                 location,
                 dataset_id,
                 arraysize,
@@ -282,6 +288,7 @@ def parse_url(url):  # noqa: C901
 
     return (
         project_id,
+        quota_project_id,
         location,
         dataset_id,
         arraysize,

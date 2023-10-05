@@ -37,6 +37,7 @@ def create_bigquery_client(
     location=None,
     project_id=None,
     with_subject=None,
+    quota_project_id=None
 ):
     default_project = None
 
@@ -64,8 +65,15 @@ def create_bigquery_client(
     if project_id is None:
         project_id = default_project
 
+    client_options = None
+    if quota_project_id:
+        client_options = {
+            'quota_project_id': quota_project_id
+        }
+
     return bigquery.Client(
         client_info=google_client_info(),
+        client_options=client_options,
         project=project_id,
         credentials=credentials,
         location=location,
