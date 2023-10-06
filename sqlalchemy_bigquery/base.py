@@ -814,6 +814,7 @@ class BigQueryDialect(DefaultDialect):
     def create_connect_args(self, url):
         (
             project_id,
+            quota_project_id,
             location,
             dataset_id,
             arraysize,
@@ -848,6 +849,7 @@ class BigQueryDialect(DefaultDialect):
                 location=self.location,
                 default_query_job_config=default_query_job_config,
                 with_subject=with_subject,
+                quota_project_id=quota_project_id
             )
             return ([], {"client": client})
 
